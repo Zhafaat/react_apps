@@ -3,21 +3,44 @@ import React from 'react'
 // import rrd
 import { useLoaderData } from 'react-router-dom';
 
+//library import 
+import { toast } from 'react-toastify';
+
 // components import
 import Table from '../components/Table';
 
 // helpers
-import { fetchData } from '../helpers';
+import { deleteItem, fetchData } from '../helpers';
 
 // loader
-export function expensesLoader() {
-    const expenses = fetchData("expenses"); 
+export async function expensesLoader() {
+    const expenses = await fetchData("expenses"); 
     return { expenses }
+}
+
+// action
+export async function expensesAction({request}) {
+    const data = await request.formData();
+    const {_action, ...values } = Object.fromEntries(data)
+
+
+    if (_action === 'deleteExpense') {
+        try {
+            // delete an expense
+            deleteItem({
+                key: 'expenses',
+                id: values.expenseId
+            })
+
+            return toast.success(`Expense ${values.expenseName} deleted!`)
+        } catch (error) {
+            throw new Error("There was a problem deleting your expense.")
+        }
+    }
 }
 
 const ExpensesPage = () => {
     const { expenses } = useLoaderData()
-    console.log(expenses)
   return (
     <div className='grid-lg'>
         <h1>All Expenses</h1>
