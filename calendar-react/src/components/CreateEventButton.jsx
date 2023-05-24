@@ -11,7 +11,7 @@ const CreateEventButton = () => {
         onClick={() => setShowEventModal(true)}
     >
         <PlusIcon width={24} />
-        <span className='pl-3 pr7'>Create</span>
+        <span className='pl-3 pr-7'>Create</span>
     </button>
   )
 }

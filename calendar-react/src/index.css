@@ -2,3 +2,50 @@
 @tailwind components;
 @tailwind utilities;
 
+.bg__indigo {
+    background-color: #7C3AED;
+}
+
+.bg__blue {
+    background-color: #3B82F6;
+}
+
+.bg__green {
+    background-color: #10B981;
+}
+
+.bg__red {
+    background-color: #EF4444;
+}
+
+.bg__purple {
+    background-color: #8B5CF6;
+}
+
+.bg__gray {
+    background-color: #9CA3AF;
+}
+
+.text__indigo {
+    color: #7C3AED;
+}
+
+.text__blue {
+    color: #3B82F6;
+}
+
+.text__green {
+    color: #10B981;
+}
+
+.text__red {
+    color: #EF4444;
+}
+
+.text__purple {
+    color: #8B5CF6;
+}
+
+.bg__gray {
+    background-color: #9CA3AF;
+}
